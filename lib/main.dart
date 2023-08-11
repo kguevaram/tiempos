@@ -21,14 +21,17 @@ Future<Album> fetchAlbum() async {
 
 class Album {
   final String dia;  
+  final String numero;
   
   const Album({
-    required this.dia
+    required this.dia,
+    required this.numero
   });
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      dia: json['dia']      
+      dia: json['dia'],
+      numero: json['manana.numero']      
     );
   }
 }
@@ -68,9 +71,9 @@ class _MyAppState extends State<MyApp> {
             future: futureAlbum,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                var dia = snapshot.data!.dia;
+                var numero = snapshot.data!.numero;
                 //return Text(snapshot.data!.dia);
-                return Text(dia);
+                return Text(numero);
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
