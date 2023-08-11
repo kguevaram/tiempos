@@ -20,7 +20,7 @@ Future<Album> fetchAlbum() async {
 }
 
 class Album {
-  final String dia;
+  final String dia;  
   
   const Album({
     required this.dia
@@ -28,7 +28,7 @@ class Album {
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      dia: json['dia'],      
+      dia: json['dia']      
     );
   }
 }
@@ -53,6 +53,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       title: 'Tiempos JPS',
       theme: ThemeData(
@@ -69,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               if (snapshot.hasData) {
                 var dia = snapshot.data!.dia;
                 //return Text(snapshot.data!.dia);
-                return Text(dia.substring(0,10));
+                return Text(dia);
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
