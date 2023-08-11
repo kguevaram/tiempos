@@ -58,11 +58,11 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+      home: Scaffold(        
         appBar: AppBar(
           title: const Text('Tiempos JPS'),
         ),
-        body: Center(
+        body: Center(          
           child: FutureBuilder<Album>(
             future: futureAlbum,
             builder: (context, snapshot) {
