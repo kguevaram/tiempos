@@ -36,12 +36,30 @@ class Album {
     required this.numeroSorteo
   });
 
-  factory Album.fromJson(Map<String, dynamic> json) { 
+  factory Album.fromJson(Map<String, dynamic> json) {   
+
+    var _numeroManana = '';
+    var _numeroTarde = '';
+    var _numeroNoche = '';
+
+    json.forEach((k,v) {   
+
+      if(v != null && k == 'manana'){ _numeroManana: json['manana']['numero'].toString(); }     
+      else{_numeroManana = '--';}   
+
+      if(v != null && k == 'mediaTarde'){ _numeroTarde: json['mediaTarde']['numero'].toString(); }     
+      else{_numeroTarde = '--';}   
+
+      if(v != null && k == 'tarde') { _numeroNoche: json['tarde']['numero'].toString(); }     
+      else{ _numeroNoche = '--'; }
+
+    });  
+
     return Album(
-      dia: json['dia'],
-      numeroManana: json['manana']['numero'].toString(),       
-      numeroTarde: json['mediaTarde']['numero'].toString(),      
-      numeroNoche: json['tarde']['numero'].toString(),
+      dia: json['dia'],  
+      numeroManana: _numeroManana,   
+      numeroTarde: _numeroTarde, 
+      numeroNoche: _numeroNoche,
       numeroSorteo: json['manana']['numeroSorteo'].toString()
     );
   }
@@ -83,7 +101,7 @@ class _MyAppState extends State<MyApp> {
                 var numeroManana = snapshot.data!.numeroManana;
                 var numeroTarde = snapshot.data!.numeroTarde;
                 var numeroNoche = snapshot.data!.numeroNoche;
-                var numeroSorteo = snapshot.data!.numeroSorteo;
+                //var numeroSorteo = snapshot.data!.numeroSorteo;
                 //return Text(snapshot.data!.dia);                
                 return                 
                   Padding(
@@ -96,17 +114,17 @@ class _MyAppState extends State<MyApp> {
                               //]                   
                         //),
                         
-                        Column(
-                          children: [
-                              Text('Sorteo número: ' + numeroSorteo,
-                                style: TextStyle(
-                                                fontSize: 25, 
-                                                fontWeight:FontWeight.bold,
-                                                color: Colors.blue
-                                                )
-                                )
-                          ]
-                        ),
+                        //Column(
+                          //children: [
+                              //Text('Sorteo número: ' + numeroSorteo,
+                                //style: TextStyle(
+                                                //fontSize: 25, 
+                                                //fontWeight:FontWeight.bold,
+                                                //color: Colors.blue
+                                                //)
+                                //)
+                          //]
+                        //),
 
                         Row(
                           children: [
