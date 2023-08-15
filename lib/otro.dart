@@ -44,14 +44,17 @@ class Album {
 
     json.forEach((k,v) {   
 
-      if(v != null && k == 'manana'){ _numeroManana: json['manana']['numero'].toString(); }     
-      else{_numeroManana = '--';}   
+      if(v != null && k == 'manana') 
+        _numeroManana = json['manana']['numero'].toString();     
+      else _numeroManana = '--';  
 
-      if(v != null && k == 'mediaTarde'){ _numeroTarde: json['mediaTarde']['numero'].toString(); }     
-      else{_numeroTarde = '--';}   
+      if(v != null && k == 'mediaTarde') 
+        _numeroTarde = json['mediaTarde']['numero'].toString(); 
+      else _numeroTarde = '--';
 
-      if(v != null && k == 'tarde') { _numeroNoche: json['tarde']['numero'].toString(); }     
-      else{ _numeroNoche = '--'; }
+      if(v != null && k == 'tarde') 
+        _numeroNoche = json['tarde']['numero'].toString(); 
+      else  _numeroNoche = '--'; 
 
     });  
 
