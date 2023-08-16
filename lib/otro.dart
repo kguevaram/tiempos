@@ -44,10 +44,13 @@ class Album {
 
     json.forEach((k,v) {   
 
-      if(v != null && k == 'manana') 
+      if(v.toString() != 'null' && k == 'manana'){ 
         _numeroManana = json['manana']['numero'].toString();     
-      else _numeroManana = '--';  
-
+      }
+      else{
+        _numeroManana = '--';     
+      }
+      
       if(v != null && k == 'mediaTarde') 
         _numeroTarde = json['mediaTarde']['numero'].toString(); 
       else _numeroTarde = '--';
@@ -94,7 +97,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,      
       home: Scaffold(        
         appBar: AppBar(
-          title: const Text('Tiempos JPS'),
+          title: const Text('JPS'),
         ),                
         body: Center(
           child: FutureBuilder<Album>(
