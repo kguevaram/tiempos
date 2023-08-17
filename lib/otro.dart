@@ -44,7 +44,7 @@ class Album {
 
     json.forEach((k,v) {   
 
-      if(v.toString() != 'null' && k == 'manana'){ 
+      if(v != null && k == 'manana'){ 
         _numeroManana = json['manana']['numero'].toString();     
       }
       else{

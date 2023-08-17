@@ -1,5 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'otro.dart';
+import 'prueba.dart';
 
 void main() => runApp(const MyApp());
