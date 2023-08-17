@@ -1,5 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'prueba.dart';
+import 'visor.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
